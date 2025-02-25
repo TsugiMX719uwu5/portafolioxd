@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 12px;
+            font-size: 16px;
+            width: 100%;
+            border-radius: 5px;
+            transition: 0.3s;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .btn:hover {
+            background-color: #0056b3;
+            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+        }
+        .video-section {
+            margin-top: 20px;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #28a745;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .back-btn:hover {
+            background-color: #218838;
+            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>English Subject Grade Calculator</h2>
+        <label for="grade1">Grade 1:</label>
+        <input type="number" id="grade1" min="0" max="100" required>
+        <label for="grade2">Grade 2:</label>
+        <input type="number" id="grade2" min="0" max="100" required>
+        <label for="grade3">Grade 3:</label>
+        <input type="number" id="grade3" min="0" max="100" required>
+        <button class="btn" onclick="calculateFinalGrade()">Calculate Final Grade</button>
+        <h3 id="result"></h3>
+        <a href="portafolio.html" class="back-btn">PAGINA PRINCIPAL</a>
+    </div>
+    
+    <div class="container video-section">
+        <h2>Video</h2>
+        <video width="100%" controls>
+            <source src="WhatsApp Video 2025-01-29 at 11.27.41 PM.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        function calculateFinalGrade() {
+            let grade1 = parseFloat(document.getElementById('grade1').value);
+            let grade2 = parseFloat(document.getElementById('grade2').value);
+            let grade3 = parseFloat(document.getElementById('grade3').value);
+            
+            if (isNaN(grade1) || isNaN(grade2) || isNaN(grade3)) {
+                document.getElementById('result').innerText = "Please enter all grades.";
+                return;
+            }
+            
+            let finalGrade = (grade1 + grade2 + grade3) / 3;
+            let status = finalGrade >= 7 ? "Approved" : "Failed";
+            document.getElementById('result').innerText = "Final Grade: " + finalGrade.toFixed(2) + " - " + status;
+        }
+    </script>
+</body>
+</html>

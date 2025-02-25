@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel Animado</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('fondo-abstracto-rosa-suave-disenos-elegantes-femeninos_889452-64708.avif') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Dancing Script', cursive;
+            padding: 20px;
+        }
+        .carousel-container {
+            width: 90%;
+            max-width: 350px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .carousel {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+        .carousel img {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            background-color: #ff6f91;
+            color: white;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        .audio-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .audio-container p {
+            font-size: 18px;
+            color: #ff6f91;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <audio id="slideSound" src="page-flip.mp3"></audio>
+    <div class="carousel-container">
+        <div class="carousel">
+            <img src="cd04937a-583a-4bf6-a685-24b8ef0d70ca.jpg" alt="Imagen 1">
+            <img src="cd04937a-583a-4bf6-a685-24b8ef0d70ca.jpg" alt="Imagen 1">
+            <img src="a3e7ced9-70dd-42ad-9dd6-5b8795e35817.jpg" alt="Imagen 2">
+            <img src="951f6659-d19f-4429-a9c0-921759d028b9.jpg" alt="Imagen 3">
+            <img src="3438d46f-4f52-4ccd-ad5a-040bd877852d.jpg" alt="Imagen 4">
+        </div>
+    </div>
+    <div class="buttons">
+        <button onclick="prevSlide()">◀</button>
+        <button onclick="nextSlide()">▶</button>
+    </div>
+    <div class="audio-container">
+        <p>For my women</p>
+        <audio controls>
+            <source src="My Hero Academia ED 12  TSUBOMI  André - A! (Cover Español Latino) - Edgardo Artieda (André - A!).mp3" type="audio/mpeg">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+    </div>
+    <script>
+        let currentIndex = 0;
+        const carousel = document.querySelector('.carousel');
+        const images = document.querySelectorAll('.carousel img');
+        const totalImages = images.length;
+        const slideSound = document.getElementById("slideSound");
+
+        function updateCarousel() {
+            const offset = -currentIndex * 100;
+            carousel.style.transform = `translateX(${offset}%)`;
+            slideSound.play();
+        }
+
+        function nextSlide() {
+            if (currentIndex < totalImages - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = totalImages - 1;
+            }
+            updateCarousel();
+        }
+
+        setInterval(nextSlide, 5000); // Cambio automático cada 5 segundos
+    </script>
+</body>
+</html>

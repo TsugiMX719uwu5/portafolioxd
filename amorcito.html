@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi 14 de febrero?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            margin: 0;
+            background: url('fondo-abstracto-rosa-suave-disenos-elegantes-femeninos_889452-64708.avif') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            padding: 10px;
+        }
+        #botonSi, #botonNo, #botonRegalo {
+            font-size: 16px;
+            padding: 12px;
+            margin: 10px;
+            cursor: pointer;
+            font-family: 'Dancing Script', cursive;
+            width: 90%;
+            max-width: 250px;
+            border: none;
+            border-radius: 10px;
+            background-color: #ff6f91;
+            color: white;
+        }
+        #botonRegalo {
+            display: none;
+            margin-top: 20px;
+        }
+        img {
+            width: 80%;
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+            #botonSi, #botonNo, #botonRegalo {
+                font-size: 18px;
+                width: auto;
+            }
+            img {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="sg-11134201-7rdxm-lxxixwpse8ncf6.jpg" alt="Imagen romántica no disponible">
+    <h1>¿Quieres ser mi 14 de febrero? 💖</h1>
+    <button id="botonSi" onclick="aceptar()">Sí</button>
+    <button id="botonNo" onclick="negar()">No</button>
+    <br>
+    <button id="botonRegalo" onclick="window.location.href='amorcito2.html'">Espero que te guste este regalo 🎁</button>
+
+    <script>
+        let tamanoBotonSi = 16;
+        function negar() {
+            tamanoBotonSi += 5;
+            document.getElementById("botonSi").style.fontSize = tamanoBotonSi + "px";
+        }
+        function aceptar() {
+            document.getElementById("botonRegalo").style.display = "block";
+        }
+    </script>
+</body>
+</html>
